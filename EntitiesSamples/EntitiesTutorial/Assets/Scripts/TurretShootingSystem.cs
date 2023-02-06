@@ -49,6 +49,7 @@ partial struct TurretShootingSystem : ISystem
     }
 }
 
+[WithAll(typeof(Shooting))]
 [BurstCompile]
 partial struct TurretShoot : IJobEntity
 {
@@ -74,6 +75,6 @@ partial struct TurretShoot : IJobEntity
         {
             Speed = spawnLocalToWorld.Forward() * 20.0f
         });
-        ECB.SetComponent(instance, new URPMaterialPropertyBaseColor {Value = turret.Color});
+        ECB.SetComponent(instance, new URPMaterialPropertyBaseColor {Value = color});
     }
 }
